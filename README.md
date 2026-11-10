@@ -1,6 +1,12 @@
 # ESP32 Sidewalk receiver
 
-Passive Amazon Sidewalk SubG-FSK receiver for a classic ESP32 and an SX1276 radio, with live-validated gateway discovery and multi-gateway beacon following. The ESP32 serves a local web dashboard with gateway cards, reception times, current and predicted frequencies, RSSI, frame bytes, and data-packet metadata.
+This Amazon Sidewalk receiver has successfully tracked multiple gateways and followed their scheduled frequency hops. It captures packet headers and displays encrypted payload bytes for supported frame formats, with a local web interface for inspecting traffic from each gateway.
+
+The project provides a foundation for analyzing Sidewalk traffic and exploring changes to how devices interact with the network. Decryption is outside its scope. Possible extensions include estimating device locations from GNSS-tagged Sidewalk observations, or estimating an observer's location by comparing gateway sightings with previously mapped observations.
+
+<img src="docs/images/receiver-and-dog.png" alt="Sidewalk receiver in its enclosure beside a dog" width="420">
+
+The receiver uses a classic ESP32 and an SX1276 radio. Its dashboard shows gateway identifiers, reception times, current and predicted frequencies, RSSI, frame bytes, and data-packet metadata.
 
 The SX1276 operates in 50 kb/s FSK mode. Reception uses a 69-channel plan from 902.2 to 915.8 MHz. Live testing validated CRC-checked beacon reception, frequency-hop prediction, multi-gateway following, and the web dashboard. Data-slot listening is implemented, and data-frame parsing is covered by synthetic tests. Live encrypted application-payload capture is the remaining verification step for that feature.
 
