@@ -1,6 +1,6 @@
 # ESP32 Sidewalk receiver
 
-This Amazon Sidewalk receiver has successfully tracked multiple gateways and followed their scheduled frequency hops. It captures packet headers and displays encrypted payload bytes for supported frame formats, with a local web interface for inspecting traffic from each gateway.
+This Amazon Sidewalk receiver has successfully tracked multiple gateways and predicted/followed their scheduled frequency hops. It captures packet headers and displays encrypted payload bytes for supported frame formats, with a local web interface for inspecting traffic from each gateway.
 
 The project provides a foundation for analyzing Sidewalk traffic and exploring changes to how devices interact with the network. Decryption is outside its scope. Possible extensions include estimating device locations from GNSS-tagged Sidewalk observations, or estimating an observer's location by comparing gateway sightings with previously mapped observations.
 
