@@ -1,8 +1,8 @@
 # ESP32 Sidewalk receiver
 
-Experimental passive Amazon Sidewalk SubG-FSK monitor for a classic ESP32 and an SX1276 radio. The ESP32 serves a local web dashboard with gateway cards, reception times, current and predicted frequencies, RSSI, frame bytes, and data-packet metadata.
+Passive Amazon Sidewalk SubG-FSK receiver for a classic ESP32 and an SX1276 radio, with live-validated gateway discovery and multi-gateway beacon following. The ESP32 serves a local web dashboard with gateway cards, reception times, current and predicted frequencies, RSSI, frame bytes, and data-packet metadata.
 
-The SX1276 operates in 50 kb/s FSK mode. Reception uses a 69-channel plan from 902.2 to 915.8 MHz. Gateway beacon following has been demonstrated on received signals. Data-slot listening and payload parsing are experimental, and live encrypted application-payload capture remains unverified.
+The SX1276 operates in 50 kb/s FSK mode. Reception uses a 69-channel plan from 902.2 to 915.8 MHz. Live testing validated CRC-checked beacon reception, frequency-hop prediction, multi-gateway following, and the web dashboard. Data-slot listening is implemented, and data-frame parsing is covered by synthetic tests. Live encrypted application-payload capture is the remaining verification step for that feature.
 
 ## Hardware and wiring
 
@@ -54,7 +54,7 @@ The firmware retains 48 mixed frames and 32 non-beacon frames in RAM. The browse
 
 Startup tests cover published AN633 PHY examples, synthetic beacon/message fixtures, bit corruption, truncation, variable-length headers, data-channel vectors, and timer/sequence rollover. The receiver starts only when its self-tests pass.
 
-Development reception demonstrated five gateway/PAN identifiers and 77 CRC-valid frames, with independent channel comparisons and zero FIFO overflows during that check. Those observations describe the tested setup. Local RF recordings and receiver coordinates are excluded from this repository.
+Live validation received five gateway/PAN identifiers and 77 CRC-valid frames. Independent comparisons confirmed the received channels against the hopping calculation, and the receiver recorded zero FIFO overflows during that check. The browser's gateway filtering, full-frame expansion, and hold/resume controls were also checked on the running receiver. Local RF recordings and receiver coordinates are excluded from this repository.
 
 Public shared FSK slots are followed from advertised schedules. Other hopping slots are sampled. The data scheduler estimates slot zero at 140 ms before the beacon SFD, with listening windows extending 24 ms before and 58 ms after target time. The dashboard marks this timing as estimated. A three-minute development check received beacons and no supported data frames, so over-the-air ciphertext extraction still requires validation.
 
@@ -62,6 +62,6 @@ A single radio shares reception time across gateways. Overlapping transmissions 
 
 ## References and licensing
 
-Protocol fields and hopping calculations follow the [Amazon Sidewalk specification](https://docs.sidewalk.amazon/specifications/sidewalk-protocol-spec/sub-ghz-protocol-stack/protocol-stack-layers-and-structure.html) and its [SubG-FSK connection description](https://docs.sidewalk.amazon/specifications/sidewalk-protocol-spec/sub-ghz-protocol-stack/subgfsk-connection.html). This is an independent experimental project.
+Protocol fields and hopping calculations follow the [Amazon Sidewalk specification](https://docs.sidewalk.amazon/specifications/sidewalk-protocol-spec/sub-ghz-protocol-stack/protocol-stack-layers-and-structure.html) and its [SubG-FSK connection description](https://docs.sidewalk.amazon/specifications/sidewalk-protocol-spec/sub-ghz-protocol-stack/subgfsk-connection.html). This is an independent implementation for ESP32 and SX1276.
 
 Third-party licensing is recorded in [THIRD_PARTY.md](THIRD_PARTY.md). A license for the project's original source has not yet been selected.

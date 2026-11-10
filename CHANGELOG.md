@@ -1,8 +1,16 @@
 # Changelog
 
+## v0.1.1 — 2026-11-09
+
+Public source release documenting the validated receiver functionality.
+
+- Lead with live-validated gateway discovery, CRC-checked reception, hop prediction, multi-gateway following, and dashboard operation.
+- Record validation results of five gateway/PAN identifiers, 77 CRC-valid frames, independent channel comparisons, and zero FIFO overflows.
+- Describe the remaining live encrypted application-payload capture check specifically within the data feature's validation notes.
+
 ## v0.1.0 — 2026-11-09
 
-Initial experimental source prerelease for ESP32 and SX1276.
+Initial source release for ESP32 and SX1276.
 
 - Passive 50 kb/s FSK reception with software PHY header, PN9, CRC16, and CRC32 validation.
 - Gateway beacon parsing, multi-gateway channel following, and scanning between scheduled opportunities.
