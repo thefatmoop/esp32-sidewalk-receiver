@@ -1,0 +1,13 @@
+**/.pio/
+**/.validation/
+**/.vscode/
+**/include/Secrets.h
+**/GIT-SERVER-LOCATION.txt
+esp32_s2Compatible_loraTest_RX_baseStationForMap/platformio.ini
+esp32_s2Compatible_loraTest_RX_baseStationForMap/lib/TinyGPSPlus-1.0.3/examples/
+**/test/README
+**/include/README
+**/lib/README
+artifacts/
+*.log
+__pycache__/
