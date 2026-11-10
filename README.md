@@ -47,6 +47,10 @@ The serial output prints the assigned web-interface address. Open that address o
 
 ## Dashboard
 
+![Web interface example with simulated gateways and packet data](docs/images/web-interface-simulated.jpg)
+
+*Simulated example. The developer is unsure what the applicable terms of service (TOS) permit for sharing captured traffic, so all gateway identifiers, network details, and packet bytes shown here are fictional.*
+
 - Scan + follow discovers gateways and follows known beacon schedules while listening on data opportunities.
 - Hold keeps the receiver on its current frequency. Tune selects a frequency from 902 to 928 MHz.
 - Gateway cards show opaque gateway/PAN identifiers, beacon timing, predicted frequencies, and advertised connection, power, load, and shared-slot fields.
